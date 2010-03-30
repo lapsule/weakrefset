@@ -4,6 +4,9 @@ from _weakref import ref
 
 __all__ = ['WeakSet']
 
+__version__ = '1.0.0'
+
+
 
 class _IterationGuard(object):
     # This context manager registers itself in the current iterators of the
