@@ -1,6 +1,5 @@
 #! /usr/bin/env python
 # setup.py
-# Install script for unittest2
 # Copyright (C) 2010 Michael Foord
 # E-mail: fuzzyman AT voidspace DOT org DOT uk
 
