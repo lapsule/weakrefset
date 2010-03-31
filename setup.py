@@ -27,6 +27,38 @@ This project is a backport of the weakrefset module, and tests, for Python 2.5 a
 require the `unittest2 package <http://pypi.python.org/pypi/unittest2>`_. 
 
 * Mercurial repository & issue tracker: http://code.google.com/p/weakrefset/
+
+You can install it with: ``pip install weakrefset``
+
+Usage is straightforward. You don't need to deal with weak references themselves, the WeakSet manages 
+the references and you can add / remove / iterate over your objects directly::
+
+    >>> from weakrefset import WeakSet
+    >>> class Foo(object): pass
+    ...
+    >>> f1 = Foo()
+    >>> f2 = Foo()
+    >>> refs = WeakSet([f1, f2])
+    >>> f3 = Foo()
+    >>> refs.add(f3)
+    >>> refs.remove(f1)
+    >>> del f2
+    >>> f3 in refs
+    True
+    >>> for f in refs:
+    ...  print f
+    ...
+    <__main__.Foo object at 0x40e410>
+
+To be compatible with Python 2.5, 2.6 and future versions of Python you can import it like this::
+
+    try:
+        # location in Python 2.7 and 3.1
+        from weakref import WeakSet
+    except ImportError:
+        # separately installed
+        from weakrefset import WeakSet
+
 """[1:]
 
 CLASSIFIERS = [
